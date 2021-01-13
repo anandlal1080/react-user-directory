@@ -4,30 +4,42 @@ import ResultList from "./ResultList";
 let counter = 0;
 class SearchResultContainer extends Component {
   state = {
+    input: "",
     results: [],
+    hresults: [],
   };
 
   // When this component mounts, search the Giphy API for pictures of kittens
   componentDidMount() {
     fetch("https://randomuser.me/api/?nat=us&results=200")
       .then((response) => response.json())
-      .then((data) => this.setState({ results: data.results }));
+      .then((data) =>
+        this.setState({ results: data.results, hresults: data.results })
+      );
   }
 
-  // searchUser = () => {
-  //   API.search(query)
-  //     .then((res) => this.setState({ results: res.data.data }))
-  //     .catch((err) => console.log(err));
-  // };
-
   handleInputChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    console.log(value);
-    // this.setState({
-    //   [name]: value,
+    this.setState(
+      {
+        input: event.target.value,
+      },
+      this.filterHandler
+    );
+  };
 
-    // });
+  filterHandler = () => {
+    const { input, results } = this.state;
+    const lowercasedInput = input.toLowerCase();
+    console.log(input);
+    const filteredData = results.filter((item) => {
+      return Object.keys(item.email).some((email) =>
+        item.email.toLowerCase().includes(lowercasedInput)
+      );
+    });
+
+    this.setState({
+      hresults: filteredData,
+    });
   };
 
   // When the Name Table Header is clicked, the table is sorted alphabetically or reversed if already sorted.
@@ -38,7 +50,7 @@ class SearchResultContainer extends Component {
     if (counter % 2 === 0) {
       sorted.reverse();
     }
-    this.setState({ results: sorted });
+    this.setState({ hresults: sorted });
   };
 
   render() {
@@ -49,7 +61,7 @@ class SearchResultContainer extends Component {
         <SearchForm handleInputChange={this.handleInputChange} />
         <ResultList
           handleFormSubmit={this.handleFormSubmit}
-          results={this.state.results}
+          hresults={this.state.hresults}
         />
       </div>
     );

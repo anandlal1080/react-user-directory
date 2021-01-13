@@ -1,7 +1,7 @@
 import React from "react";
 
 function ResultList(props) {
-  let results = props.results;
+  let results = props.hresults;
 
   return (
     <table className="table table-striped">
