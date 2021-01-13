@@ -32,9 +32,7 @@ class SearchResultContainer extends Component {
     const lowercasedInput = input.toLowerCase();
     console.log(input);
     const filteredData = results.filter((item) => {
-      return Object.keys(item.email).some((email) =>
-        item.email.toLowerCase().includes(lowercasedInput)
-      );
+      return item.email.toLowerCase().includes(lowercasedInput);
     });
 
     this.setState({
