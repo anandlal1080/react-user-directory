@@ -8,7 +8,13 @@ function ResultList(props) {
       <thead>
         <tr>
           <th scope="col">Image</th>
-          <th scope="col">Name</th>
+          <th
+            className="user-select-all"
+            scope="col"
+            onClick={props.handleFormSubmit}
+          >
+            Name
+          </th>
 
           <th scope="col">Phone</th>
           <th scope="col">Email</th>
@@ -21,7 +27,7 @@ function ResultList(props) {
               <img
                 alt={result.name.first}
                 className="img-fluid"
-                src={result.picture.medium}
+                src={result.picture.thumbnail}
               />
             </td>
             <td>

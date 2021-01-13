@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import ResultList from "./ResultList";
-
+let counter = 0;
 class SearchResultContainer extends Component {
   state = {
     results: [],
@@ -23,26 +23,34 @@ class SearchResultContainer extends Component {
   handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    this.setState({
-      [name]: value,
-    });
+    console.log(value);
+    // this.setState({
+    //   [name]: value,
+
+    // });
   };
 
-  // When the form is submitted, search the Giphy API for `this.state.search`
+  // When the Name Table Header is clicked, the table is sorted alphabetically or reversed if already sorted.
   handleFormSubmit = (event) => {
-    event.preventDefault();
-    this.searchUser(this.state.search);
+    counter = counter + 1;
+    let sorted = this.state.results;
+    sorted.sort((a, b) => (a.email > b.email ? 1 : b.email > a.email ? -1 : 0));
+    if (counter % 2 === 0) {
+      sorted.reverse();
+    }
+    this.setState({ results: sorted });
   };
 
   render() {
     return (
       <div>
-        <SearchForm
-          search={this.state.search}
+        <p className="text-center font-weight-bolder">User Directory</p>
+
+        <SearchForm handleInputChange={this.handleInputChange} />
+        <ResultList
           handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
+          results={this.state.results}
         />
-        <ResultList results={this.state.results} />
       </div>
     );
   }
