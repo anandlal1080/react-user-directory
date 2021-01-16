@@ -2,7 +2,7 @@
 
 Employee-Directory is an application that gives the user ability to view employee directory, sort them and filter through them.
 
-Checkout the [Deployed app here](https://employee-directory1.netlify.app/).
+Checkout the [Deployed app here](https://amazing-leakey-f2bb0c.netlify.app/).
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Checkout the [Deployed app here](https://employee-directory1.netlify.app/).
 
 ## Installation
 
-You don't need to install it, just simply go to this [Link](https://employee-directory1.netlify.app/) or, if your prefer, copy this link https://employee-directory1.netlify.app/ and paste in your browser.
+You don't need to install it, just simply go to this [Link](https://amazing-leakey-f2bb0c.netlify.app/) or, if your prefer, copy this link https://amazing-leakey-f2bb0c.netlify.app/ and paste in your browser.
 
 ## Usage
 
