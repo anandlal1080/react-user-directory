@@ -67,6 +67,4 @@ When contributing to this repository, please first discuss the change you wish t
 
 If you have any questions or concerns, feel free to contact me via:
 
-GitHub: [slugovoy](https://github.com/slugovoy)
-
-Email: serg.lugovoy.81@gmail.com
+GitHub: [anandlal1080](https://github.com/anandlal1080)

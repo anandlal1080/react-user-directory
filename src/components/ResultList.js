@@ -44,8 +44,3 @@ function ResultList(props) {
 }
 
 export default ResultList;
-{
-  /* <td>Mark</td>
-<td>Otto</td>
-<td>@mdo</td> */
-}
